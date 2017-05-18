@@ -14,9 +14,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
-
-    <?= $form->field($model, 'create_time')->textInput() ?>
+    <?= $form->field($model, 'status')->dropDownList(\common\models\Commentstatus::find()
+        ->select(['name','id'])
+        ->orderBy('position')
+        ->indexBy('id')
+        ->column(),
+        ['prompt'=>'Select the Status']); ?>
+    
 
     <?= $form->field($model, 'userid')->textInput() ?>
 
