@@ -44,7 +44,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     ->orderBy('position')
                     ->indexBy('id')
                     ->column(),
+                'contentOptions'=>
+                    function($model)
+                    {
+                        return ($model->status==1)?['class'=>'bg-danger']:[];
+                    }
             ],
+
             'create_time:datetime',
             'post.title',
            // 'userid',
