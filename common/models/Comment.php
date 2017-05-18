@@ -100,4 +100,8 @@ class Comment extends \yii\db\ActiveRecord
         $this->status = 2;
         return ($this->save()?true:false);
     }
+    public static function getPengdingCommentCount()
+    {
+        return Comment::find()->where(['status'=>1])->count();
+    }
 }

@@ -37,6 +37,7 @@ AppAsset::register($this);
     $menuItems = [
 	 ['label' => 'Post', 'url' => ['/post/index']],
 	 ['label' => 'Comment', 'url' => ['/comment/index']],
+        '<li><span class="badge">'.\common\models\Comment::getPengdingCommentCount().'</span></li>',
 	 ['label' => 'User', 'url' => ['/user/index']],
 	 ['label' => 'Admin', 'url' => ['/adminuser/index']],
     ];
