@@ -104,4 +104,16 @@ class Comment extends \yii\db\ActiveRecord
     {
         return Comment::find()->where(['status'=>1])->count();
     }
+    public function beforeSave($insert)
+    {
+        if(parent::beforeSave($insert))
+        {
+            if($insert)
+            {
+                $this->create_time=time();
+            }
+            return true;
+        }
+        else  return false;
+    }
 }
