@@ -22,13 +22,32 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+          //  ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'content:ntext',
-            'status',
+         //   'id',
+           // ['attribute'=>'id', 'contentOptions'=>['width'=>'30px'],],
+           // 'content:ntext',
+            [
+                'attribute'=>'content',
+                'value'=>'beginning',],
+           // 'status',
+            [
+                'attribute'=>'user.username',
+                'label'=>'Author',
+                'value'=>'user.username',
+            ],
+            [
+                'attribute'=>'status',
+                'value'=>'status0.name',
+                'filter'=>\common\models\Commentstatus::find()
+                    ->select(['name','id'])
+                    ->orderBy('position')
+                    ->indexBy('id')
+                    ->column(),
+            ],
             'create_time:datetime',
-            'userid',
+            'post.title',
+           // 'userid',
             // 'email:email',
             // 'url:url',
             // 'post_id',
