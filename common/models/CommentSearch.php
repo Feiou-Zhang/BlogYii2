@@ -17,13 +17,13 @@ class CommentSearch extends Comment
      */
     public function attributes()
     {
-        return array_merge(parent::attributes(),['user.username']);
+        return array_merge(parent::attributes(),['user.username'],['post.title']);
     }
     public function rules()
     {
         return [
             [['id', 'status', 'create_time', 'userid', 'post_id', 'remind'], 'integer'],
-            [['content', 'email', 'url','user.username'], 'safe'],
+            [['content', 'email', 'url','user.username','post.title'], 'safe'],
         ];
     }
 
@@ -77,13 +77,19 @@ class CommentSearch extends Comment
 
         $query->join('INNER JOIN','user','comment.userid = user.id');
         $query->andFilterWhere(['like','user.username',$this->getAttribute('user.username')]);
+        $query->join('INNER JOIN','post','comment.post_id = post.id');
+        $query->andFilterWhere(['like','post.title',$this->getAttribute('post.title')]);
 
         $dataProvider->sort->attributes['user.username'] =
             [
                 'asc'=>['user.username'=>SORT_ASC],
                 'desc'=>['user.username'=>SORT_DESC],
             ];
-
+        $dataProvider->sort->attributes['post.title'] =
+            [
+                'asc'=>['post.title'=>SORT_ASC],
+                'desc'=>['post.title'=>SORT_DESC],
+            ];
         $dataProvider->sort->defaultOrder =
             [
                 'status'=>SORT_ASC,
