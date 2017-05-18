@@ -88,4 +88,11 @@ class Comment extends \yii\db\ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' => 'userid']);
     }
+    public function getBeginning()
+    {
+        $tmpStr = strip_tags($this->content);
+        $tmpLen = mb_strlen($tmpStr);
+
+        return mb_substr($tmpStr,0,15,'utf-8').(($tmpLen>15)?'...':'');
+    }
 }
