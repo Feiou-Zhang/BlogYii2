@@ -47,6 +47,11 @@ class PostSearch extends Post
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => ['pageSize'=>10], //each page only display 10 items
+            'sort'=>[
+                'defaultOrder'=>['id'=>SORT_DESC,],
+              //  'attributes'=>['id','title'], //only can sort by id and title
+                ],
         ]);
 
         $this->load($params);
