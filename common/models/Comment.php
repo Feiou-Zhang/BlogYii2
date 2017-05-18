@@ -95,4 +95,9 @@ class Comment extends \yii\db\ActiveRecord
 
         return mb_substr($tmpStr,0,15,'utf-8').(($tmpLen>15)?'...':'');
     }
+    public function approve()
+    {
+        $this->status = 2;
+        return ($this->save()?true:false);
+    }
 }

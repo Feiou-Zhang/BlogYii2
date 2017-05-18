@@ -53,13 +53,31 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'create_time:datetime',
             'post.title',
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template'=>'{view} {update} {delete} {approve}',
+                'buttons'=>
+                    [
+                        'approve'=>function($url,$model,$key)
+                        {
+                            $options=[
+                                'title'=>Yii::t('yii', 'Approve'),
+                                'aria-label'=>Yii::t('yii','Approve'),
+                                'data-confirm'=>Yii::t('yii','Are you sure to approve this comment?'),
+                                'data-method'=>'post',
+                                'data-pjax'=>'0',
+                            ];
+                            return Html::a('<span class="glyphicon glyphicon-check"></span>',$url,$options);
+                        },
+                    ],
+            ],
            // 'userid',
             // 'email:email',
             // 'url:url',
             // 'post_id',
             // 'remind',
 
-            ['class' => 'yii\grid\ActionColumn'],
+         //   ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 </div>
