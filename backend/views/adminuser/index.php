@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\AdminuserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Adminusers';
+$this->title = 'Admin Users';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="adminuser-index">
@@ -22,19 +22,43 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            //  ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            ['attribute'=>'id', 'contentOptions'=>['width'=>'30px'],],
             'username',
             'nickname',
-            'password',
+            //'password',
             'email:email',
             // 'profile:ntext',
             // 'auth_key',
             // 'password_hash',
             // 'password_reset_token',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+                'template'=>'{view} {update} {resetpwd} {privilege}',
+                'buttons'=>[
+                    'resetpwd'=>function($url,$model,$key)
+                    {
+                        $options=[
+                            'title'=>Yii::t('yii','Reset Password'),
+                            'aria-label'=>Yii::t('yii','Reset Password'),
+                            'data-pjax'=>'0',
+                        ];
+                        return Html::a('<span class="glyphicon glyphicon-lock"></span>',$url,$options);
+                    },
+
+                    'privilege'=>function($url,$model,$key)
+                    {
+                        $options=[
+                            'title'=>Yii::t('yii','Permission'),
+                            'aria-label'=>Yii::t('yii','Permission'),
+                            'data-pjax'=>'0',
+                        ];
+                        return Html::a('<span class="glyphicon glyphicon-user"></span>',$url,$options);
+                    },
+
+                ],
+            ],
         ],
     ]); ?>
 </div>
