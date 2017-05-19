@@ -24,17 +24,29 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+         //   'id',
+            ['attribute'=>'id', 'contentOptions'=>['width'=>'30px'],],
             'username',
-            'auth_key',
-            'password_hash',
-            'password_reset_token',
+          //  'auth_key',
+          //  'password_hash',
+          //  'password_reset_token',
             // 'email:email',
+            'email:email',
             // 'status',
-            // 'created_at',
+
+            ['attribute'=>'status',
+                'value'=>'statusStr',
+                'filter'=>\common\models\User::allStatus(), //not sure if this is right, but it works right now
+            ],
+
+            // 'status',
+            'created_at:datetime',
             // 'updated_at',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+                'template'=>'{update}'
+            ],
+
         ],
     ]); ?>
 </div>
