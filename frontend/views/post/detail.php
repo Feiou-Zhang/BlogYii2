@@ -30,7 +30,7 @@ use yii\helpers\Url;
 			
 			<div class="post">
 				<div class="title">
-					<h2><a href="<?= $model->url;?>"><?= Html::encode($model->title);?></a></h2>				
+					<h2 style = "color: #aa5cc7"><?= Html::encode($model->title);?></h2>
 						<div class="author">
 						<span class="glyphicon glyphicon-time" aria-hidden="true"></span><em><?= date('Y-m-d H:i:s',$model->create_time)."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";?></em>
 						<span class="glyphicon glyphicon-user" aria-hidden="true"></span><em><?= Html::encode($model->author->nickname);?></em>
@@ -72,14 +72,16 @@ use yii\helpers\Url;
 			
 			<?php if($model->commentCount>=1) :?>
 			
-			<h5><?= $model->commentCount.'comment';?></h5>
+			<h5><?= $model->commentCount.' comment';?></h5>
+
+
 			<?= $this->render('_comment',array(
 					'post'=>$model,
 					'comments'=>$model->activeComments,
 			));?>
 			<?php endif;?>
 			
-			<h5>Comment</h5>
+			<h5>Submit Your Comment</h5>
 			<?php 
 			$commentModel =new Comment();
 			echo $this->render('_guestform',array(
