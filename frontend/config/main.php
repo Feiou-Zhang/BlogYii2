@@ -38,7 +38,7 @@ return [
             'errorAction' => 'site/error',
         ],
 
-        'urlManager' => [
+       /* 'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'suffix'=>'.html',
@@ -46,7 +46,7 @@ return [
                 '<controller:\w+>/<id:\d+>'=>'<controller>/detail',
                 'posts'=>'post/index',
             ],
-        ],
+        ],*/
 
     ],
     'params' => $params,

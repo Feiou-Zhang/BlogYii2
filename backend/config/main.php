@@ -45,7 +45,7 @@ return [
             ],
         ],
         */
-        'urlManager' => [
+     /*   'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'suffix'=>'.html',
@@ -54,7 +54,7 @@ return [
                 '<controller:\w+>/<id:\d+>'=>'<controller>/view',
                 '<controller:\w+>/<id:\d+>/<action:(create|update|delete)>'=>'<controller>/<action>',
             ],
-        ],
+        ], */
     ],
     'params' => $params,
 ];
