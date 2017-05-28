@@ -34,13 +34,17 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
-    $menuItems = [
-	 ['label' => 'Post', 'url' => ['/post/index']],
-	 ['label' => 'Comment', 'url' => ['/comment/index']],
-        '<li><span class="badge">'.\common\models\Comment::getPengdingCommentCount().'</span></li>',
-	 ['label' => 'User', 'url' => ['/user/index']],
-	 ['label' => 'Admin', 'url' => ['/adminuser/index']],
-    ];
+    if(Yii::$app->user->isGuest){
+
+    }else {
+        $menuItems = [
+            ['label' => 'Post', 'url' => ['/post/index']],
+            ['label' => 'Comment', 'url' => ['/comment/index']],
+            '<li><span class="badge">' . \common\models\Comment::getPengdingCommentCount() . '</span></li>',
+            ['label' => 'User', 'url' => ['/user/index']],
+            ['label' => 'Admin', 'url' => ['/adminuser/index']],
+        ];
+    }
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
