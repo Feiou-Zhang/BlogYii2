@@ -7,7 +7,8 @@ use yii\widgets\ActiveForm;
 /* @var $model common\models\Post */
 /* @var $form yii\widgets\ActiveForm */
 ?>
-
+<script src="/static/js/ckeditor/ckeditor.js"></script>
+<!--<script src="//cdn.ckeditor.com/4.7.0/full/ckeditor.js"></script>-->
 <div class="post-form">
 
     <?php $form = ActiveForm::begin(); ?>
@@ -16,6 +17,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 
+    <script>
+        CKEDITOR.replace( 'post-content' );
+    </script>
     <?= $form->field($model, 'tags')->textarea(['rows' => 6]) ?>
 
    <?= $form->field($model, 'status')->dropDownList(\common\models\Poststatus::find()
