@@ -20,11 +20,12 @@ $this->title = 'Feiou Zhang';
         <i class="st-text console" id="st-text">
               <span>Hi, Welcome to Feiou's personal website!
             </span>
-              <span>Please help yourself to play around here.
+              <span>Please help yourself play around here.
             </span>
-            <span>If you are still not leaving this page, I want to share something with you.
-            </span>
-            <span>If there was one point making you stop learning, I hope you will never reach that.</span>
+            <span>And I would love to share something with you in this website, maybe ideas, maybe tips, how I solved a
+                problem, or just some random thoughts.</span>
+            <span>I believe in what Benjamin Franklin says "Any investment in knowledge always pays the best interest".
+                I hope we all can learn something along the way.</span>
 
         </i><i class="st-cursor" id="st-cursor">|</i>
     </span>
