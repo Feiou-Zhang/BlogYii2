@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Feiou Zhang';
 ?>
 
 <link rel="stylesheet" href="css/normalize.min.css">
