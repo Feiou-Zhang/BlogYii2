@@ -24,6 +24,8 @@ use common\models\Post;
 		<?= implode(', ',$model->tagLinks);?>
 		<br>
 		<?= Html::a("Comment ({$model->commentCount})",$model->url.'#comments')?> | Last Modified <?= date('Y-m-d H:i:s',$model->update_time);?>
+
 	</div>
-	
+
 </div>
+<hr>
