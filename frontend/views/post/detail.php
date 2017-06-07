@@ -32,8 +32,8 @@ use yii\helpers\Url;
 				<div class="title">
 					<h2 style = "color: #aa5cc7"><?= Html::encode($model->title);?></h2>
 						<div class="author">
-						<span class="glyphicon glyphicon-time" aria-hidden="true"></span><em><?= date('Y-m-d H:i:s',$model->create_time)."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";?></em>
-						<span class="glyphicon glyphicon-user" aria-hidden="true"></span><em><?= Html::encode($model->author->nickname);?></em>
+						<span class="glyphicon glyphicon-time" aria-hidden="true">&nbsp;</span><em><?= date('Y-m-d H:i:s',$model->create_time)."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";?></em>
+						<span class="glyphicon glyphicon-user" aria-hidden="true">&nbsp;</span><em><?= Html::encode($model->author->nickname);?></em>
 						</div>				
 				</div>
 		
@@ -51,7 +51,7 @@ use yii\helpers\Url;
 				<?= implode(', ',$model->tagLinks);?>
 				<br>
 				<?= Html::a("Comment({$model->commentCount})",$model->url.'#comments');?>
-				Last Modified<?= date('Y-m-d H:i:s',$model->update_time);?>
+				Last Modified&nbsp;&nbsp;<?= date('Y-m-d H:i:s',$model->update_time);?>
 			</div>
 		</div>
 		
@@ -66,7 +66,7 @@ use yii\helpers\Url;
 			  
 			  <p><?= nl2br($commentModel->content);?></p>
 			  	<span class="glyphicon glyphicon-time" aria-hidden="true"></span><em><?= date('Y-m-d H:i:s',$model->create_time)."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";?></em>
-				<span class="glyphicon glyphicon-user" aria-hidden="true"></span><em><?= Html::encode($model->author->nickname);?></em>	  
+				<span class="glyphicon glyphicon-user" aria-hidden="true"></span><em><?= Html::encode($model->author->nickname);?></em>
 			</div>			
 			<?php }?>
 			
