@@ -15,7 +15,9 @@ use yii\helpers\Url;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 ?>
-
+<link href="/static/css/monokai_sublime.css" rel="stylesheet">
+<script src="/static/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 <div class="container">
 
 	<div class="row">

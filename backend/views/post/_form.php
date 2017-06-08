@@ -18,7 +18,13 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 
     <script>
-        CKEDITOR.replace( 'post-content' );
+        var config = {
+            extraPlugins: 'codesnippet',
+            codeSnippet_theme: 'monokai_sublime',
+            height: 356
+        };
+
+        CKEDITOR.replace( 'post-content', config);
     </script>
     <?= $form->field($model, 'tags')->textarea(['rows' => 6]) ?>
 
